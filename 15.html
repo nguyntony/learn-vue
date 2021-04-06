@@ -1,0 +1,53 @@
+<!-- the number 15 corresponds with the lesson plan number in the net ninja udemy course -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 15</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="./js/15.js" defer></script>
+    <style>
+      .pokemon-list ul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .pokemon-list ul li {
+        list-style-type: none;
+        background-color: cornflowerblue;
+      }
+      img {
+        width: 220px;
+        height: 200px;
+      }
+      .pokemon-list .fav {
+        background-color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Lesson 15</h1>
+      <p>
+        The challenge is to display a list of items and when you click on one of
+        them, you will essentially toggle a class that says whether they are
+        favorited or not.
+      </p>
+      <div class="pokemon-list">
+        <h2>Your pokemons</h2>
+        <ul>
+          <li
+            v-for="mon in pokemons"
+            :class="{fav: mon.isFavorite}"
+            @click="favoriteToggle(mon)"
+          >
+            <img :src="mon.img" :alt="mon.name" />
+            <h3>{{mon.name}}</h3>
+            <p>{{mon.type}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
