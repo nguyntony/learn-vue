@@ -25,7 +25,15 @@ const app = new Vue({
       },
     ],
   },
+  computed: {
+    // these are functions that perform some sort of action with the data prop, you will be able to 'compute' new data based on what the fn does.
+    // for exmaple you can filter through the pokemon list in order to generate a new array that may be helpful.
+    favoritePokemon() {
+      return this.pokemons.filter((mon) => mon.isFavorite);
+    },
+  },
   methods: {
+    // these are like helper functions that your app may use, some examples would be event functions that occur when event happens such as the favoriteToggle
     favoriteToggle(mon) {
       mon.isFavorite = !mon.isFavorite;
     },
